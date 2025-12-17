@@ -1,0 +1,185 @@
+/* src/css/custom.css (FINAL UI UPGRADE VERSION - POLISHED) */
+
+/**
+ * Any CSS you add here will be applied to all pages of your Docusaurus site.
+ */
+
+/* Variables for common theme colors */
+:root {
+  --ifm-color-primary: #00e6e6; /* Bright cyan for accents (AI/tech feel) */
+  --ifm-color-primary-dark: #00b3b3;
+  --ifm-color-primary-light: #33ffff;
+  
+  --ifm-code-font-size: 95%;
+
+  /* Custom AI/Dark Theme variables */
+  --ifm-background-color: #1a1a2e; /* Dark background */
+  --ifm-font-color-base: #e0e0e0; /* Light grey for text */
+  --ifm-font-color-secondary: #aaaaaa;
+  --ifm-heading-color: #ffffff; /* White for headings */
+  --ifm-link-color: var(--ifm-color-primary); /* Links will be cyan */
+  --ifm-link-hover-color: var(--ifm-color-primary-light);
+
+  /* Navbar specific */
+  --ifm-navbar-background-color: #0f0f1c; /* Even darker navbar */
+  --ifm-footer-background-color: #0f0f1c; /* Added for consistency */
+  
+  /* Neon Glow Variable */
+  --color-neon-glow: rgba(0, 230, 230, 0.6);
+}
+
+/* Force Dark Mode Default */
+html[data-theme='dark'] {
+  --ifm-color-primary: #00e6e6; 
+  --ifm-color-primary-dark: #00b3b3;
+  --ifm-background-color: #1a1a2e;
+  --ifm-font-color-base: #e0e0e0;
+  --ifm-heading-color: #ffffff;
+  --ifm-navbar-background-color: #0f0f1c;
+  --ifm-footer-background-color: #0f0f1c;
+}
+
+/* Light Mode (Commented out for consistency in dark theme) */
+/*
+html[data-theme='light'] {
+  --ifm-color-primary: #007bff; 
+  --ifm-color-primary-dark: #0069d9;
+  --ifm-background-color: #ffffff;
+  --ifm-font-color-base: #333333;
+  --ifm-heading-color: #1a1a2e;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-footer-background-color: #f7f7f7;
+}
+*/
+
+/* Global body styles */
+body {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font-family: 'Inter', sans-serif; 
+}
+/* ... (General styles for Headings, Links, Code blocks, etc. remain the same) ... */
+
+/* Small glow effect for cards/sections */
+.card-glow {
+  background-color: #282a36;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 230, 230, 0.3); /* Subtle cyan glow */
+  transition: box-shadow 0.3s ease-in-out;
+}
+.card-glow:hover {
+  box-shadow: 0 0 25px var(--color-neon-glow);
+}
+
+
+/* Sidebar styling (FIXED: Sharpness reduced) */
+.theme-doc-sidebar-container {
+  background-color: var(--ifm-navbar-background-color);
+  border-right: 1px solid #2f2f45;
+}
+
+/* Sidebar styling */
+/* ... (existing sidebar code) ... */
+
+/* FIX: Docs Sidebar Headings (Deep Reinforcement Learning, Module 1, etc.) */
+/* Yeh headings <h3> tag hote hain Docs sidebar mein */
+
+/* Sharpness fix: Active link ki opacity 0.2 se kam kar ke 0.08 ki gayi hai */
+.theme-doc-sidebar-item-link-active {
+  background-color: rgba(0, 230, 230, 0.08) !important; 
+  color: var(--ifm-color-primary) !important;
+  border-left: 3px solid var(--ifm-color-primary);
+  padding-left: calc(var(--ifm-spacing-horizontal) - 3px);
+}
+.theme-doc-sidebar-item-link:hover {
+  background-color: rgba(0, 230, 230, 0.05); /* Opacity Reduced */
+}
+
+
+/* ------------------------------------------------------------------- */
+/* SECTION A: BLOG UI FIXES (White BG, Unstyled Content -> Fixed) */
+/* ------------------------------------------------------------------- */
+
+/* 1. Force Content Background Dark (Fixes Problem 1 White BG) */
+/* Blog Content Area */
+.col.col--9 {
+    background-color: var(--ifm-background-color) !important;
+}
+/* Blog/Docs Sidebar Area */
+.col.col--3 {
+    background-color: var(--ifm-background-color) !important;
+}
+/* Blog Main Wrapper */
+.main-wrapper, .docusaurus-mt-md {
+    background-color: var(--ifm-background-color) !important;
+}
+
+
+/* 2. Blog List Item Card Styling */
+.blog-list-page article.margin-bottom--xl {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 3rem !important;
+    display: block !important; 
+    width: 100% !important;
+}
+
+.blog-list-page .blog-post-item {
+    background-color: #1a1e30 !important; 
+    border: 1px solid var(--ifm-color-primary-dark) !important;
+    border-radius: 12px !important;
+    padding: 30px !important;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    height: 100%;
+}
+
+.blog-list-page .blog-post-item:hover {
+    border-color: var(--ifm-color-primary) !important;
+    box-shadow: 0 0 18px var(--ifm-color-primary), 0 0 25px rgba(0, 230, 230, 0.2) !important;
+    transform: translateY(-3px);
+}
+
+/* Blog Post Title/Text Fixes */
+.blog-list-page .blog-post-item header a {
+    color: var(--ifm-color-primary) !important;
+    font-weight: 700 !important;
+}
+.blog-list-page .blog-post-item p {
+    color: var(--ifm-font-color-base) !important;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* SECTION B: FOOTER UI FIXES (Fixed: Text Color, Alignment, Links) */
+/* ------------------------------------------------------------------- */
+
+.footer {
+    background-color: var(--ifm-footer-background-color) !important; 
+    border-top: 2px solid var(--ifm-color-primary-dark);
+    padding: 2.5rem 0; /* Padding adjust for clean look */
+}
+
+/* Footer Heading Color (Ensure visibility) */
+.footer__title {
+    color: var(--ifm-heading-color) !important;
+    font-weight: 700;
+}
+
+/* Footer Text Color (Fixes Problem 3 Text Color) */
+.footer .col:not(.footer__item-title) {
+    color: var(--ifm-font-color-base) !important;
+}
+
+/* Footer Link Styling */
+.footer a {
+    color: var(--ifm-color-primary) !important;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.footer a:hover {
+    color: var(--ifm-color-primary-light) !important;
+    /* Subtle neon text glow on hover */
+    text-shadow: 0 0 5px var(--ifm-color-primary); 
+    text-decoration: none;
+}

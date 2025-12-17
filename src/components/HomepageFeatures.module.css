@@ -1,0 +1,67 @@
+/* src/components/HomepageFeatures.module.css (FINAL CARDS POLISH) */
+
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 4rem 0; /* Padding badhaya for better spacing */
+  width: 100%;
+  /* Background color ab custom.css ya index.module.css se aana chahiye,
+     yahan sirf spacing aur alignment rakhte hain. */
+}
+
+/* Wrapper for consistent spacing between columns */
+.featureWrapper {
+  padding: 0 1rem;
+}
+
+/* Feature Image Styling (for GIFs) */
+.featureImage {
+  width: 150px;
+  height: 150px;
+  object-fit: contain; /* Ensure GIF fits properly */
+  margin-bottom: 1rem;
+  /* Icon filter ab custom.css mein card-glow se handle hoga */
+}
+
+/* Card Link Reset (Docusaurus link color aur underline hatane ke liye) */
+.cardLink {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* 1. Feature Card Base Styling (The inner div) */
+.featureCard {
+  /* custom.css mein card-glow class ismein background aur border/shadow degi */
+  padding: 2.5rem 1.5rem; /* Better padding */
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Ensure all cards are equal height */
+  margin: 0; /* Wrapper handles margin */
+  
+  /* Feature Title Color Override */
+  color: var(--ifm-font-color-base); 
+}
+
+/* 2. Card Lift/Hover Effect */
+.featureCard:hover {
+  transform: translateY(-8px); /* Stronger lift effect */
+  /* Box-shadow for neon glow now handled by custom.css's .card-glow:hover */
+}
+
+/* Feature Titles */
+.featureCard h3 {
+  color: var(--ifm-color-primary-light); 
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+/* Feature Description */
+.featureCard p {
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.95rem;
+}

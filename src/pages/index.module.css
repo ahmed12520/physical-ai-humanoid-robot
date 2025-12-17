@@ -1,0 +1,76 @@
+/* src/pages/index.module.css (FINAL HERO POLISH - WIREFRAME REMOVED) */
+
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+/* Keyframe for subtle floating/breathing effect on the robot */
+@keyframes breathing {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); } /* Thoda upar uthana */
+  100% { transform: translateY(0); }
+}
+
+.heroBanner {
+  /* BACKGROUND FIX: Ab hum solid dark BG aur gradient use kar rahe hain
+     taake missing file ka error na aaye. */
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1c 100%); 
+  
+  /* background-size, background-repeat, background-position, aur animation: moveBackground hat gaye hain */
+  
+  position: relative;
+  overflow: hidden; 
+  
+  padding: 6rem 0; 
+  border-bottom: 3px solid var(--ifm-color-primary-dark);
+}
+
+/* Container flex properties for arranging robot and text */
+.heroBanner .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styling for the Humanoid Robot Image (Arrangement and Animation) */
+.heroRobot {
+  /* Image ko text block ke upar le jaayenge */
+  order: -1; 
+  display: block;
+  /* Size control */
+  max-width: 350px; 
+  height: auto;
+  margin: 0 auto 2rem; /* Center and margin below */
+  
+  /* Neon Shadow/Glow */
+  filter: drop-shadow(0 0 15px var(--ifm-color-primary)) brightness(1.1); 
+  
+  /* Breathing Animation */
+  animation: breathing 5s ease-in-out infinite; 
+  
+  /* Responsive sizing for smaller screens */
+  @media screen and (max-width: 768px) {
+    max-width: 200px;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Ensure text elements appear after the image (due to order: -1 on heroRobot) */
+.heroBanner :is(.hero__title, .hero__subtitle) {
+    order: 0;
+}
