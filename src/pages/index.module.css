@@ -1,76 +1,153 @@
-/* src/pages/index.module.css (FINAL HERO POLISH - WIREFRAME REMOVED) */
+/* =======================================================
+   PHYSICAL AI — PREMIUM HERO SECTION (REFINED)
+   ======================================================= */
 
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-/* Keyframe for subtle floating/breathing effect on the robot */
-@keyframes breathing {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); } /* Thoda upar uthana */
-  100% { transform: translateY(0); }
-}
-
-.heroBanner {
-  /* BACKGROUND FIX: Ab hum solid dark BG aur gradient use kar rahe hain
-     taake missing file ka error na aaye. */
-  background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1c 100%); 
-  
-  /* background-size, background-repeat, background-position, aur animation: moveBackground hat gaye hain */
-  
+.heroSection {
   position: relative;
-  overflow: hidden; 
-  
-  padding: 6rem 0; 
-  border-bottom: 3px solid var(--ifm-color-primary-dark);
-}
-
-/* Container flex properties for arranging robot and text */
-.heroBanner .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 4rem 2rem;
-  }
-}
-
-.buttons {
+  padding: 8rem 0;
+  overflow: hidden;
+  /* Deep Space Gradient */
+  background: radial-gradient(circle at 20% 30%, #101428 0%, #05050a 100%);
+  border-bottom: 1px solid rgba(0, 242, 255, 0.15);
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-/* Styling for the Humanoid Robot Image (Arrangement and Animation) */
-.heroRobot {
-  /* Image ko text block ke upar le jaayenge */
-  order: -1; 
-  display: block;
-  /* Size control */
-  max-width: 350px; 
-  height: auto;
-  margin: 0 auto 2rem; /* Center and margin below */
-  
-  /* Neon Shadow/Glow */
-  filter: drop-shadow(0 0 15px var(--ifm-color-primary)) brightness(1.1); 
-  
-  /* Breathing Animation */
-  animation: breathing 5s ease-in-out infinite; 
-  
-  /* Responsive sizing for smaller screens */
-  @media screen and (max-width: 768px) {
-    max-width: 200px;
-    margin-bottom: 1rem;
-  }
+/* Tech Grid Pattern */
+.heroSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black, transparent 90%);
+  pointer-events: none;
 }
 
-/* Ensure text elements appear after the image (due to order: -1 on heroRobot) */
-.heroBanner :is(.hero__title, .hero__subtitle) {
-    order: 0;
+/* Floating Glow Orb for Depth */
+.glowOrb {
+  position: absolute;
+  top: -100px;
+  right: -50px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 242, 255, 0.15), transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* Amazon style content width */
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- TEXT CONTENT ---------- */
+.heroContent {
+  flex: 1.2; /* Text ko thoda zyada space diya */
+  max-width: 650px;
+  text-align: left;
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 5vw, 4.2rem); /* Dynamic sizing */
+  font-weight: 900;
+  line-height: 1.05;
+  background: linear-gradient(180deg, #ffffff 40%, #a1a1a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: #94a3b8; /* Slate gray for professional look */
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* ---------- BUTTONS ---------- */
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.heroButton {
+  background: linear-gradient(45deg, #00f2ff, #0066ff);
+  padding: 18px 45px;
+  border-radius: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #000 !important;
+  text-decoration: none !important;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 20px rgba(0, 242, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.heroButton:hover {
+  transform: translateY(-5px);
+  background: #ffffff;
+  box-shadow: 0 15px 30px rgba(0, 242, 255, 0.5);
+}
+
+/* ---------- ROBOT IMAGE ---------- */
+@keyframes breathing {
+  0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.2)); }
+  50% { transform: translateY(-15px); filter: drop-shadow(0 0 40px rgba(0, 242, 255, 0.5)); }
+}
+
+.heroRobotContainer {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.heroRobot {
+  max-width: 550px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  animation: breathing 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+/* ---------- MOBILE RESPONSIVE ---------- */
+@media screen and (max-width: 996px) {
+  .heroContainer {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 1.5rem;
+  }
+
+  .heroContent {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroRobotContainer {
+    order: 1;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .heroRobot {
+    max-width: 300px;
+  }
 }

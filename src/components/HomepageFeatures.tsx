@@ -7,9 +7,9 @@ import { JSX } from 'react';
 import Link from '@docusaurus/Link';
 
 // GIF imports (Yakeen karein ki yeh files static/img/ folder mein hain)
-import DigitalBrainGif from '@site/static/img/digitalization.gif'; // DRL Icon
-import EyeGif from '@site/static/img/eye.gif'; // VLA Icon
-import CubeGif from '@site/static/img/3d-cube.gif'; // Isaac Sim Icon
+import DigitalBrainGif from '@site/static/img/digitalization.png'; // DRL Icon
+import EyeGif from '@site/static/img/eye.png'; // VLA Icon
+import CubeGif from '@site/static/img/3d-cube.png';  // Isaac Sim Icon
 
 type FeatureItem = {
   title: string;

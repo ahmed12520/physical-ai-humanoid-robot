@@ -76,8 +76,8 @@ const config: Config = {
       logo: {
         alt: 'Animated Humanoid AI Logo',
         // Animated GIF logo path (static/img/ folder se)
-        src: 'img/digitalization.gif', 
-        srcDark: 'img/digitalization.gif',
+        src: 'img/logo.png', 
+        srcDark: 'img/logo.png',
       },
       items: [ // <-- Yeh items array ab sahi jagah par hai
         {

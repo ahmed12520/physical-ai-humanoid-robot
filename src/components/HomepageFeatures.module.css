@@ -1,67 +1,124 @@
-/* src/components/HomepageFeatures.module.css (FINAL CARDS POLISH) */
-
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+/* src/components/HomepageFeatures.module.css - REFINED PREMIUM CARDS */
 
 .features {
   display: flex;
   align-items: center;
-  padding: 4rem 0; /* Padding badhaya for better spacing */
+  padding: 6rem 0;
   width: 100%;
-  /* Background color ab custom.css ya index.module.css se aana chahiye,
-     yahan sirf spacing aur alignment rakhte hain. */
+  position: relative;
+  background: transparent;
 }
 
-/* Wrapper for consistent spacing between columns */
+/* Subtle Tech Blueprint Pattern */
+.features::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  pointer-events: none;
+}
+
 .featureWrapper {
-  padding: 0 1rem;
+  padding: 1.25rem;
 }
 
-/* Feature Image Styling (for GIFs) */
+/* --- The Main Feature Card --- */
+.featureCard {
+  background: rgba(15, 23, 42, 0.4); /* Darker slate glass */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 3.5rem 2rem;
+  border-radius: 24px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Shine Effect on Hover */
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -150%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: 0.6s;
+}
+
+.featureCard:hover::before {
+  left: 150%;
+}
+
+/* Cyber-Corner Accent */
+.featureCard::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 50px; height: 50px;
+  background: linear-gradient(135deg, transparent 60%, rgba(0, 242, 255, 0.15) 60%);
+  border-radius: 0 24px 0 0;
+}
+
+.featureCard:hover {
+  transform: translateY(-15px);
+  background: rgba(20, 30, 50, 0.6);
+  border-color: rgba(0, 242, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 242, 255, 0.15);
+}
+
+/* Feature Image / Icon Styling */
 .featureImage {
-  width: 150px;
-  height: 150px;
-  object-fit: contain; /* Ensure GIF fits properly */
-  margin-bottom: 1rem;
-  /* Icon filter ab custom.css mein card-glow se handle hoga */
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  margin-bottom: 2.5rem;
+  filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.2));
+  transition: all 0.5s ease;
+  z-index: 2;
 }
 
-/* Card Link Reset (Docusaurus link color aur underline hatane ke liye) */
+.featureCard:hover .featureImage {
+  transform: scale(1.15) translateY(-5px);
+  filter: drop-shadow(0 0 25px rgba(0, 242, 255, 0.5));
+}
+
 .cardLink {
   text-decoration: none !important;
   color: inherit !important;
 }
 
-/* 1. Feature Card Base Styling (The inner div) */
-.featureCard {
-  /* custom.css mein card-glow class ismein background aur border/shadow degi */
-  padding: 2.5rem 1.5rem; /* Better padding */
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 100%; /* Ensure all cards are equal height */
-  margin: 0; /* Wrapper handles margin */
-  
-  /* Feature Title Color Override */
-  color: var(--ifm-font-color-base); 
-}
-
-/* 2. Card Lift/Hover Effect */
-.featureCard:hover {
-  transform: translateY(-8px); /* Stronger lift effect */
-  /* Box-shadow for neon glow now handled by custom.css's .card-glow:hover */
-}
-
-/* Feature Titles */
+/* Card Titles */
 .featureCard h3 {
-  color: var(--ifm-color-primary-light); 
-  font-weight: 700;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.5px;
   transition: color 0.3s ease;
+}
+
+.featureCard:hover h3 {
+  color: var(--ifm-color-primary);
 }
 
 /* Feature Description */
 .featureCard p {
-  color: var(--ifm-font-color-secondary);
-  font-size: 0.95rem;
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .features { padding: 3rem 0; }
+  .featureCard { padding: 2.5rem 1.5rem; }
 }
