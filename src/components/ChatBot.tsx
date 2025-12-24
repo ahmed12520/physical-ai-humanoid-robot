@@ -30,7 +30,7 @@ const ChatBot = () => {
         setLoading(true);
 
         try {
-            const response = await fetch("http://localhost:8000/chat", {
+            const response = await fetch("https://ahmed125200-my-robot-bot.hf.space/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: currentInput }),
